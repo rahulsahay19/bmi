@@ -1,0 +1,26 @@
+<h1>Age Weight Calculation</h1>
+<p>Please enter age and weight to get the result:</p>
+
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm" role="form" class="col-md-9 go-right">
+      <h2>Enter New Age Weight Set</h2>
+      <div class="form-group">
+        <input id="age" name="age" type="text" class="form-control" required [(ngModel)]="ageCollection.age" #age="ngModel">
+        <label for="age">Age</label>
+        <div class="alert alert-danger" *ngIf="age.touched && !age.valid">Please specify Age!</div>
+      </div>
+      <div class="form-group">
+        <input id="weight" name="weight" type="text" class="form-control" required [(ngModel)]="ageCollection.weight" #weight="ngModel">
+        <label for="weight">Weight</label>
+        <div class="alert alert-danger" *ngIf="weight.touched && !weight.valid">Please specify weight!</div>
+      </div>
+      <p class="bg-success" style="padding: 10px; margin-top: 20px; clear: both">
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+        <!--<a [routerLink]="['/newCalc/']" class="btn btn-info"><i class="glyphicon glyphicon-backward"></i> Back</a>-->
+      </p>
+
+      <strong>Result:- {{ageResult}}</strong> 
+    </form>
+  </div>
+</div>
